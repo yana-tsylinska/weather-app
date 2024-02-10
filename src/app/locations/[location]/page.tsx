@@ -1,11 +1,17 @@
+import { Suspense } from 'react';
+
 import { Coordinates } from '@/models/geolocation.model';
+import Weather from '@/components/Weather/Weather';
+import WeatherSkeleton from '@/skeletons/WeaterSkeleton/WeatherSkeleton';
 
 export default function Page({ params }: { params: { location: string } }) {
-  const location = parseLocationId(params.location);
+  const coordinates = parseLocationId(params.location);
 
   return (
     <div>
-      <h1>Welcome to <br></br> {location.lat}, {location.lon}!</h1>
+      <Suspense fallback={<WeatherSkeleton />}>
+        <Weather coordinates={coordinates} />
+      </Suspense>
     </div>
   );
 }

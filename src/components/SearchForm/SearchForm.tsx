@@ -7,7 +7,7 @@ import { MdOutlineSearch } from 'react-icons/md';
 import styles from './SearchForm.module.css';
 
 import { GeolocationModel } from '@/models/geolocation.model';
-import fetchLocationsList from '@/lib/locations';
+import { fetchLocationsList } from '@/lib/locations';
 
 export default function SearchForm() {
   const [locationName, setLocationName] = useState('');
@@ -31,6 +31,7 @@ export default function SearchForm() {
         <MdOutlineSearch size="1.7em" />
       </button>
       <input type="text" className={styles.SearchInput} placeholder="Search city"
+             name="locationName"
              value={locationName} onChange={handleSearchChange}>
       </input>
 

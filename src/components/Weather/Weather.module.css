@@ -1,0 +1,14 @@
+.title {
+	margin: 1rem 0;
+	line-height: 1.2;
+	font-size: 3rem;
+}
+
+.WeatherCards {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 20px;
+	justify-content: space-between;
+	margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+.WeatherCard {
+	grid-row: 1/3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px;
+	background-color: var(--light-color);
+	border-radius: var(--content-border-radius);
+	width: 100%;
+	max-width: 400px;
+}
+
+.WeatherCardFooter {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5px;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 20px 10px;
+	margin: 20px 0 0;
+
+	background-color: var(--medium-color);
+	border-radius: var(--content-border-radius);
+}
+
+.FooterItem {
+	text-align: center;
+}

@@ -1,49 +1,19 @@
 :root {
   --max-width: 1200px;
   --border-radius: 5px;
-  --border-color: #bfd4f4;
+  --border-color: #e0e0e0;
   --content-border-radius: 15px;
+
+  --primary-color: #3498db;
+  --light-color: #aed6ff;
+  --medium-color: #7bb6ff;
+  --dark-color: #2c3e50;
+  --accent-color: #4da6ff;
+  --background-color: #f5f5f5;
+
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-color: #d5e3f8;
-  --background-end-rgb: 166, 185, 217;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
-
-  --light-rgb: 166, 185, 217;
-  --medium-rgb: 149, 170, 207;
-  --dark-rgb: 133, 156, 197;
 }
 
 /*@media (prefers-color-scheme: dark) {*/
@@ -92,7 +62,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--dark-color);
   background: var(--background-color);
 }
 
@@ -110,7 +80,8 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+  max-width: 1000px;
+  padding: 6rem;
+  margin: 0 auto;
 }

@@ -1,11 +1,13 @@
-import { GeolocationModel } from '@/models/geolocation.model';
+'use server';
 
-const GEOCODING_API_URL= 'http://api.openweathermap.org/geo/1.0/direct';
-const API_KEY = 'c2b8789a428aecf024fb7e23805c2a76';
+const GEOCODING_API_URL= process.env.GEOCODING_API_URL;
+const API_KEY = process.env.API_KEY;
 
-export default async function fetchLocationsList(name: string): Promise<Array<GeolocationModel>> {
-  const response = await fetch(`${GEOCODING_API_URL}?q=${name}&limit=5&appid=${API_KEY}`);
-    const data = await response.json();
+import { Coordinates, GeolocationModel } from '@/models/geolocation.model';
+
+export async function fetchLocationsList(name: string): Promise<Array<GeolocationModel>> {
+  const response = await fetch(`${GEOCODING_API_URL}direct?q=${name}&limit=5&appid=${API_KEY}`);
+  const data = await response.json();
 
   return data.map((location: GeolocationModel) => ({
     id: `${location.lat}_${location.lon}`,
@@ -15,4 +17,11 @@ export default async function fetchLocationsList(name: string): Promise<Array<Ge
     lat: location.lat,
     lon: location.lon,
   }));
+}
+
+export async function fetchLocationName({ lat, lon }: Coordinates): Promise<string> {
+  const response = await fetch(`${GEOCODING_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
+  const data = await response.json();
+
+  return data[0]?.name;
 }
