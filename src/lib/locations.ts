@@ -23,5 +23,5 @@ export async function fetchLocationName({ lat, lon }: Coordinates): Promise<stri
   const response = await fetch(`${GEOCODING_API_URL}reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
   const data = await response.json();
 
-  return data[0]?.name;
+  return `${data[0]?.name}, ${data[0]?.state}, ${data[0]?.country}`;
 }

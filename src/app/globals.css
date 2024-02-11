@@ -86,3 +86,16 @@ a {
   padding: 6rem;
   margin: 0 auto;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logo img {
+  margin-right: 10px;
+}

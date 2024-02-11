@@ -8,10 +8,10 @@ import CurrentWeather from '@/components/CurrentWeather/CurrentWeather';
 import HourlyWeather from '@/components/HourlyWeather/HourlyWeather';
 
 export default async function Weather({ coordinates }: { coordinates: Coordinates }) {
-  const [name, weather] = await Promise.all([fetchLocationName(coordinates), fetchWeatherData(coordinates)]);
+  const [location, weather] = await Promise.all([fetchLocationName(coordinates), fetchWeatherData(coordinates)]);
 
   return (<>
-    <h1 className={styles.title}>Welcome to {name}!</h1>
+    <h1 className={styles.title}>{location}</h1>
     <div className={styles.WeatherCards}>
       <CurrentWeather weather={weather.current} />
       <HourlyWeather weather={weather.hourly} />
