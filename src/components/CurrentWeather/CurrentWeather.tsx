@@ -8,7 +8,7 @@ export default function CurrentWeather({ weather }: { weather: WeatherCurrent })
   return (
     <section className={styles.WeatherCard}>
       <div className={styles.WeatherIcon}>
-        <WeatherIcon icon={currentWeather.icon} alt={currentWeather.description} height={120} width={120} />
+        <WeatherIcon icon={currentWeather.icon} alt={currentWeather.main} height={120} width={120} />
       </div>
       <h3 className={styles.WeatherDescription}>{currentWeather.main}, {currentWeather.description}</h3>
       <p className={styles.Temperature}>{roundTemperature(weather.temp)}°C</p>

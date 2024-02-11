@@ -6,9 +6,7 @@ import { roundTemperature } from '@/lib/helpers';
 export default function HourlyWeather({ weather }: { weather: Array<HourlyWeatherDetails> }) {
 
   function getParsedTime(dt: number): string {
-    const date = new Date(dt * 1000)
-
-    return `${date.getHours()}:${date.getMinutes()}`;
+    return new Date(dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   }
 
   return (
@@ -18,7 +16,7 @@ export default function HourlyWeather({ weather }: { weather: Array<HourlyWeathe
           <div key={index} className={styles.HourlyWeather}>
             <p>{getParsedTime(hourlyWeather.dt)}</p>
             <div className={styles.WeatherIcon}>
-              <WeatherIcon icon={hourlyWeather.weather[0].icon} alt={hourlyWeather.weather[0].description} height={40} width={40} />
+              <WeatherIcon icon={hourlyWeather.weather[0].icon} alt={hourlyWeather.weather[0].main} height={40} width={40} />
             </div>
             <p>{roundTemperature(hourlyWeather.temp)}°C</p>
           </div>
