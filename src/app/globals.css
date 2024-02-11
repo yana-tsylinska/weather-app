@@ -83,7 +83,7 @@ a {
   flex-direction: column;
   min-height: 100vh;
   max-width: var(--max-width);
-  padding: 6rem;
+  padding: 2rem 6rem;
   margin: 0 auto;
 }
 
@@ -98,4 +98,17 @@ a {
 
 .logo img {
   margin-right: 10px;
+}
+
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 1rem;
+  }
 }

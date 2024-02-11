@@ -58,3 +58,9 @@
 .Locations li + li {
 	border-top: 1px solid rgb(239, 239, 239);
 }
+
+@media (max-width: 600px) {
+	.SearchForm {
+		width: 100%;
+	}
+}

@@ -9,3 +9,22 @@
   line-height: 1.5;
   font-size: 2rem;
 }
+
+@media (max-width: 1024px) {
+  .title {
+    margin: 1rem 0;
+    font-size: 3rem;
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+}

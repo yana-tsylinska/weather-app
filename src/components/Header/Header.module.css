@@ -5,3 +5,9 @@
 	padding: 0 0 1rem;
 	width: 100%;
 }
+
+@media (max-width: 600px) {
+	.header {
+		flex-direction: column;
+	}
+}
