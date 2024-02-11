@@ -1,6 +1,7 @@
 'use client';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { MdOutlineSearch } from 'react-icons/md';
 
@@ -10,6 +11,7 @@ import { GeolocationModel } from '@/models/geolocation.model';
 import { fetchLocationsList } from '@/lib/locations';
 
 export default function SearchForm() {
+  const router = useRouter()
   const [locationName, setLocationName] = useState('');
   const [locationsList , setLocationsList] = useState([] as Array<GeolocationModel>); // [ { name: '...', lat: 0, lon: 0 }, ...
 
@@ -25,6 +27,12 @@ export default function SearchForm() {
     setLocationsList([]);
   };
 
+  const handleRedirect = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, path: string) => {
+    setLocationsList([]);
+    setLocationName('');
+    router.push(path);
+  }
+
   return (
     <form onSubmit={handleLocationSearch} className={styles.SearchForm}>
       <button type="submit" className={styles.SearchButton} aria-label="Search button">
@@ -39,7 +47,7 @@ export default function SearchForm() {
         <ul className={styles.Locations}>
           {locationsList.map(({ name, id, country, state }) => (
             <li key={ id }>
-              <Link href={`/locations/${id}`}>{ name }, { state }, { country }</Link>
+              <Link onClick={(e) => handleRedirect(e, `/locations/${id}`)} href={`/locations/${id}`}>{ name }, { state }, { country }</Link>
             </li>
           ))}
         </ul>

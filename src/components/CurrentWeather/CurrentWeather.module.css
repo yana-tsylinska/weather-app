@@ -5,10 +5,23 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px;
-	background-color: var(--light-color);
+	background-color: var(--lighter-color);
 	border-radius: var(--content-border-radius);
 	width: 100%;
-	max-width: 400px;
+}
+
+.WeatherIcon {
+	margin: 10px 0 30px;
+}
+
+.WeatherDescription {
+	font-weight: normal;
+}
+
+.Temperature {
+	margin-top: 10px;
+	font-size: 2rem;
+	font-weight: bold;
 }
 
 .WeatherCardFooter {
@@ -21,7 +34,7 @@
 	padding: 20px 10px;
 	margin: 20px 0 0;
 
-	background-color: var(--medium-color);
+	background-color: var(--light-color);
 	border-radius: var(--content-border-radius);
 }
 

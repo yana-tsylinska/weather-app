@@ -1,0 +1,25 @@
+.WeatherCard {
+	grid-row: 3/3;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	padding: 20px;
+	background-color: var(--lighter-color);
+	border-radius: var(--content-border-radius);
+}
+
+.scrollable {
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.HourlyWeather {
+	text-align: center;
+}

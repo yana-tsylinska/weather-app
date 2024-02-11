@@ -2,7 +2,7 @@ export interface WeatherForecast {
   lon: number;
   lat: number;
   current: WeatherCurrent;
-  hourly: Array<WeatherDetails>;
+  hourly: Array<HourlyWeatherDetails>;
   daily: Array<WeatherDaily>;
   alerts: Array<WeatherAlert>;
 }
@@ -28,6 +28,12 @@ export interface WeatherCurrent extends WeatherDetails {
   feels_like: number;
   sunrise?: number;
   sunset?: number;
+}
+
+export interface HourlyWeatherDetails extends WeatherDetails {
+  data: Date;
+  temp: number;
+  feels_like: Object;
 }
 
 export interface WeatherDaily extends WeatherDetails {
