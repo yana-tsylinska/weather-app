@@ -1,7 +1,10 @@
 import styles from './DailyWeather.module.css';
+
 import { WeatherDaily } from '@/models/weather.model';
-import WeatherIcon from '@/components/WeatherIcon/WeatherIcon';
 import { roundTemperature } from '@/lib/helpers';
+
+import WeatherIcon from '@/components/WeatherIcon';
+
 export default function DailyWeather({ weather }: { weather: Array<WeatherDaily> }) {
 
   function getParsedDay(dt: number): string {

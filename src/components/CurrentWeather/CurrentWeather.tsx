@@ -1,7 +1,10 @@
 import styles from './CurrentWeather.module.css';
+
 import { WeatherCurrent } from '@/models/weather.model';
-import WeatherIcon from '@/components/WeatherIcon/WeatherIcon';
 import { roundTemperature } from '@/lib/helpers';
+
+import WeatherIcon from '@/components/WeatherIcon';
+
 export default function CurrentWeather({ weather }: { weather: WeatherCurrent }) {
   const currentWeather = weather.weather[0];
 

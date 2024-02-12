@@ -1,12 +1,12 @@
-import fetchWeatherData from '@/lib/weather';
-import { Coordinates } from '@/models/geolocation.model';
-import { fetchLocationName } from '@/lib/locations';
-
 import styles from './Weather.module.css';
 
-import CurrentWeather from '@/components/CurrentWeather/CurrentWeather';
-import HourlyWeather from '@/components/HourlyWeather/HourlyWeather';
-import DailyWeather from '@/components/DailyWeather/DailyWeather';
+import { Coordinates } from '@/models/geolocation.model';
+import fetchWeatherData from '@/lib/weather';
+import { fetchLocationName } from '@/lib/locations';
+
+import CurrentWeather from '@/components/CurrentWeather';
+import HourlyWeather from '@/components/HourlyWeather';
+import DailyWeather from '@/components/DailyWeather';
 
 export default async function Weather({ coordinates }: { coordinates: Coordinates }) {
   const [location, weather] = await Promise.all([fetchLocationName(coordinates), fetchWeatherData(coordinates)]);

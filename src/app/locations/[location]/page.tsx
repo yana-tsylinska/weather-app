@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 
 import { Coordinates } from '@/models/geolocation.model';
-import Weather from '@/components/Weather/Weather';
-import WeatherSkeleton from '@/skeletons/WeaterSkeleton/WeatherSkeleton';
+
+import Weather from '@/components/Weather';
+import WeatherSkeleton from '@/skeletons/WeaterSkeleton';
 
 export default function Page({ params }: { params: { location: string } }) {
   const coordinates = parseLocationId(params.location);

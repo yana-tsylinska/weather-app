@@ -1,7 +1,9 @@
-import styles from "./page.module.css";
-import SearchForm from '@/components/SearchForm';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import styles from './page.module.css';
+
+import SearchForm from '@/components/SearchForm';
 
 export default function Home() {
   return (

@@ -1,7 +1,9 @@
-import { HourlyWeatherDetails } from '@/models/weather.model';
 import styles from './HourlyWeather.module.css';
-import WeatherIcon from '@/components/WeatherIcon/WeatherIcon';
+
+import { HourlyWeatherDetails } from '@/models/weather.model';
 import { roundTemperature } from '@/lib/helpers';
+
+import WeatherIcon from '@/components/WeatherIcon';
 
 export default function HourlyWeather({ weather }: { weather: Array<HourlyWeatherDetails> }) {
 
