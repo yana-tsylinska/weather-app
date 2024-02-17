@@ -38,6 +38,18 @@
 	border-right: none;
 }
 
+.message {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	padding: 8px;
+	margin: 0;
+
+	background: white;
+	border: 1px solid var(--border-color);
+	border-top-color: rgb(239, 239, 239);
+}
+
 .Locations {
 	position: absolute;
 	width: 100%;

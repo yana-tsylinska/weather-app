@@ -11,25 +11,42 @@ import { GeolocationModel } from '@/models/geolocation.model';
 import { fetchLocationsList } from '@/lib/locations';
 
 export default function SearchForm() {
-  const router = useRouter()
+  const router = useRouter();
   const [locationName, setLocationName] = useState('');
-  const [locationsList , setLocationsList] = useState([] as Array<GeolocationModel>); // [ { name: '...', lat: 0, lon: 0 }, ...
+  const [locationsList , setLocationsList] = useState([] as Array<GeolocationModel>);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleLocationSearch = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const locations = await fetchLocationsList(locationName);
-    setLocationsList(locations);
+    const data = await fetchLocationsList(locationName);
+
+    if (data.hasOwnProperty('error')) {
+      console.error(data.error);
+      setError(true);
+      setIsLoaded(true);
+      setLocationsList([]);
+
+      return;
+    }
+
+    setError(false);
+    setIsLoaded(true);
+    setLocationsList([...data.response]);
   };
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLocationName(e.target.value);
     setLocationsList([]);
+    setError(false);
+    setIsLoaded(false);
   };
 
   const handleRedirect = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, path: string) => {
     setLocationsList([]);
     setLocationName('');
+    setIsLoaded(false);
     router.push(path);
   }
 
@@ -43,15 +60,19 @@ export default function SearchForm() {
              value={locationName} onChange={handleSearchChange}>
       </input>
 
-      { locationsList?.length > 0 && (
+      { isLoaded && locationsList?.length > 0 && (
         <ul className={styles.Locations}>
-          {locationsList.map(({ name, id, country, state }) => (
+          {locationsList.map(({ name, id, country }) => (
             <li key={ id }>
-              <Link onClick={(e) => handleRedirect(e, `/locations/${id}`)} href={`/locations/${id}`}>{ name }, { state }, { country }</Link>
+              <Link onClick={(e) => handleRedirect(e, `/locations/${id}`)} href={`/locations/${id}`}>{ name }, { country }</Link>
             </li>
           ))}
         </ul>
       ) }
+
+      { isLoaded && !error && locationsList?.length === 0 && <p className={styles.message}>No locations found. Please, try again.</p> }
+
+      { isLoaded && error && <p className={styles.message}>Something went wrong! Please, try again later. If the problem persist contact the author.</p> }
     </form>
   );
 }
