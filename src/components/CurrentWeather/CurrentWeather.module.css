@@ -5,7 +5,7 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px;
-	background-color: var(--lighter-color);
+	background-color: var(--card-background);
 	border-radius: var(--content-border-radius);
 	width: 100%;
 }
@@ -34,7 +34,7 @@
 	padding: 20px 10px;
 	margin: 20px 0 0;
 
-	background-color: var(--light-color);
+	background-color: var(--card-background-darker);
 	border-radius: var(--content-border-radius);
 }
 

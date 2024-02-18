@@ -1,15 +1,14 @@
 :root {
   --max-width: 1200px;
   --border-radius: 5px;
-  --border-color: #e0e0e0;
   --content-border-radius: 15px;
 
-  --primary-color: #3498db;
-  --lighter-color: #d6e9ff;
-  --light-color: #aed6ff;
-  --medium-color: #7bb6ff;
-  --dark-color: #2c3e50;
-  --accent-color: #4da6ff;
+  --border-color: #e0e0e0;
+  --field-background: #ffffff;
+  --button-color: #EFEFEF;
+  --card-background: #d6e9ff;
+  --card-background-darker: #aed6ff;
+  --text-color: #2c3e50;
   --background-color: #fafafa;
 
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
@@ -17,38 +16,18 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
-/*@media (prefers-color-scheme: dark) {*/
-/*  :root {*/
-/*    --foreground-rgb: 255, 255, 255;*/
-/*    --background-start-rgb: 0, 0, 0;*/
-/*    --background-end-rgb: 0, 0, 0;*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color: #333333;
+    --field-background: #6B6B6B;
+    --button-color: #3B3B3B;
 
-/*    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));*/
-/*    --secondary-glow: linear-gradient(*/
-/*      to bottom right,*/
-/*      rgba(1, 65, 255, 0),*/
-/*      rgba(1, 65, 255, 0),*/
-/*      rgba(1, 65, 255, 0.3)*/
-/*    );*/
-
-/*    --tile-start-rgb: 2, 13, 46;*/
-/*    --tile-end-rgb: 2, 5, 19;*/
-/*    --tile-border: conic-gradient(*/
-/*      #ffffff80,*/
-/*      #ffffff40,*/
-/*      #ffffff30,*/
-/*      #ffffff20,*/
-/*      #ffffff10,*/
-/*      #ffffff10,*/
-/*      #ffffff80*/
-/*    );*/
-
-/*    --callout-rgb: 20, 20, 20;*/
-/*    --callout-border-rgb: 108, 108, 108;*/
-/*    --card-rgb: 100, 100, 100;*/
-/*    --card-border-rgb: 200, 200, 200;*/
-/*  }*/
-/*}*/
+    --card-background: #597ea2;
+    --card-background-darker: #2c3e50;
+    --text-color: #fafafa;
+    --background-color: #1f2b38;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -63,7 +42,7 @@ body {
 }
 
 body {
-  color: var(--dark-color);
+  color: var(--text-color);
   background: var(--background-color);
 }
 

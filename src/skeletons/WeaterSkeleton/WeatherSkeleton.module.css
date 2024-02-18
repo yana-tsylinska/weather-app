@@ -7,7 +7,7 @@
 .WeatherCards {
 	display: block;
 	height: 50vh;
-	background-color: var(--lighter-color);
+	background-color: var(--card-background);
 	border-radius: var(--content-border-radius);
 }
 

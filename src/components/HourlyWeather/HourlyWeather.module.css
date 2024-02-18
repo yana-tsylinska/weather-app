@@ -4,7 +4,7 @@
 	overflow: hidden;
 	display: flex;
 	padding: 20px;
-	background-color: var(--lighter-color);
+	background-color: var(--card-background);
 	border-radius: var(--content-border-radius);
 }
 
