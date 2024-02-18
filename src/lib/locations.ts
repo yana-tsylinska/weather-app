@@ -4,6 +4,7 @@ const GEOCODING_API_URL= process.env.GEOCODING_API_URL;
 const API_KEY = process.env.API_KEY;
 
 import { Coordinates, GeolocationModel } from '@/models/geolocation.model';
+import { getFullLocationName } from '@/lib/helpers';
 
 export async function fetchLocationsList(name: string): Promise<{response: Array<GeolocationModel>, error?: any}> {
   try {
@@ -29,6 +30,7 @@ export async function fetchLocationsList(name: string): Promise<{response: Array
         name: location.name,
         country: location.country,
         state: location.state,
+        fullLocation: getFullLocationName(location),
         lat: location.lat,
         lon: location.lon,
       })))
@@ -69,7 +71,7 @@ export async function fetchLocationName({ lat, lon }: Coordinates): Promise<{res
       throw new Error('Failed to fetch location name: ' + data.message);
     }
 
-    return { response: `${data[0]?.name}, ${data[0]?.state}, ${data[0]?.country}` };
+    return { response: getFullLocationName(data[0]) };
   } catch (error) {
     // Save this error into a log file? Send it to a monitoring server?
     console.log(error);

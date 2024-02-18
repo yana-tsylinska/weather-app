@@ -62,9 +62,9 @@ export default function SearchForm() {
 
       { isLoaded && locationsList?.length > 0 && (
         <ul className={styles.Locations}>
-          {locationsList.map(({ name, id, country }) => (
+          {locationsList.map(({ id, fullLocation }) => (
             <li key={ id }>
-              <Link onClick={(e) => handleRedirect(e, `/locations/${id}`)} href={`/locations/${id}`}>{ name }, { country }</Link>
+              <Link onClick={(e) => handleRedirect(e, `/locations/${id}`)} href={`/locations/${id}`}>{ fullLocation }</Link>
             </li>
           ))}
         </ul>

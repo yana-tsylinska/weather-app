@@ -69,7 +69,8 @@
 	border: 1px solid var(--border-color);
 }
 
-.Locations li {
+.Locations a {
+	display: block;
 	padding: 8px;
 }
 

@@ -6,6 +6,7 @@ export interface GeolocationModel {
   lon: number;
   name: string;
   state: string;
+  fullLocation: string;
 }
 
 export interface Coordinates {

@@ -23,3 +23,7 @@ export function getParsedLocation(locationId: string): { coordinates?: Coordinat
   return { coordinates };
 }
 
+export function getFullLocationName(location: { name: string, state: string, country: string }): string {
+  return [location.name, location.state, location.country].filter(Boolean).join(', ');
+}
+
