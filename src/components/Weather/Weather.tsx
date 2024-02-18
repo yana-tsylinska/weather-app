@@ -12,7 +12,7 @@ export default async function Weather({ coordinates }: { coordinates: Coordinate
   const [locationData, weatherData] = await Promise.all([fetchLocationName(coordinates), fetchWeatherData(coordinates)]);
 
   if (locationData.hasOwnProperty('error') || weatherData.hasOwnProperty('error')) {
-    console.error(locationData.error || weatherData.error);
+    console.error(locationData.error ? locationData.error : weatherData.error);
 
     return <h1 className={ styles.title }>Something went wrong! Please, try again later. If the problem persist contact the author.</h1>;
   }
